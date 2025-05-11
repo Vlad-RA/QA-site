@@ -44,9 +44,9 @@ export default function ContactSection() {
               </p>
             </div>
             <div className="space-y-3">
-              <a href="mailto:info@qualityinsightshub.com" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
+              <a href="mailto:rad4enko-v1dimir@yandex.ru" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
                 <Mail className="h-5 w-5 text-primary" />
-                info@qualityinsightshub.com
+                rad4enko-v1dimir@yandex.ru
               </a>
               <a href="https://t.me/nightteli" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
                 <TelegramIcon />
