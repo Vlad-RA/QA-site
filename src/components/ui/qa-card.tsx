@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card'; // Renamed CardDescription to avoid conflict
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface QaCardModalContent {
   title: string;
@@ -59,9 +59,22 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
                   data-ai-hint={modalContent.imageHint}
                 />
               </div>
-              <div className="md:max-h-[300px] md:overflow-y-auto pr-2"> {/* Added max-height and overflow for text */}
-                <DialogDescription className="text-foreground/80 space-y-3 text-left">
-                  {typeof modalContent.description === 'string' ? <p>{modalContent.description}</p> : modalContent.description}
+              <div className="md:max-h-[300px] md:overflow-y-auto pr-2">
+                {/*
+                  Use DialogDescription with asChild to render a div for complex content.
+                  This div will correctly host <p> and <ul> elements from modalContent.description.
+                  The classNames ensure consistent styling with DialogDescription's defaults and custom styles.
+                */}
+                <DialogDescription asChild>
+                  <div className={cn(
+                    "text-sm", // Default text size for DialogDescription
+                    "text-foreground/80 space-y-3 text-left" // Custom styles previously applied
+                                     // text-muted-foreground is DialogDescription's default color,
+                                     // but text-foreground/80 was custom, let's prioritize custom or merge thoughtfully.
+                                     // Using text-foreground/80 for now.
+                  )}>
+                    {modalContent.description}
+                  </div>
                 </DialogDescription>
               </div>
             </div>
@@ -71,4 +84,3 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
     </Card>
   );
 }
-
