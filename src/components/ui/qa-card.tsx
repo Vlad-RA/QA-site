@@ -1,9 +1,9 @@
 
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card'; // Renamed CardDescription to avoid conflict
+import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 interface QaCardModalContent {
   title: string;
   description: React.ReactNode;
-  imageName: string; // Changed from imageHint, expects filename like "Tests.png"
+  imageName: string;
 }
 
 interface QaCardProps {
@@ -40,8 +40,8 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
               Узнать больше
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-lg md:max-w-3xl bg-background border-border text-foreground">
-            <DialogHeader>
+          <DialogContent className="sm:max-w-lg md:max-w-3xl lg:max-w-4xl bg-background border-border text-foreground p-0">
+            <DialogHeader className="p-6 pb-0">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 rounded-md bg-primary/10">
                   <Icon className="h-6 w-6 text-primary" />
@@ -49,22 +49,21 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
                 <DialogTitle className="text-2xl text-white">{modalContent.title}</DialogTitle>
               </div>
             </DialogHeader>
-            <div className="grid md:grid-cols-2 gap-6 pt-4 items-start">
-              <div className="relative aspect-square w-full max-w-[250px] mx-auto md:mx-0 md:max-w-none self-center md:self-start">
+            <div className="grid md:grid-cols-2 gap-6 p-6 items-start max-h-[80vh] overflow-y-auto custom-scrollbar">
+              <div className="relative w-full h-64 md:h-[400px] lg:h-[500px] rounded-lg shadow-md overflow-hidden bg-muted">
                 <Image
-                  src={`/${modalContent.imageName}`} // Use local image path from /public
+                  src={`/${modalContent.imageName}`}
                   alt={modalContent.title}
-                  width={250}
-                  height={250}
-                  className="rounded-lg object-cover shadow-md"
-                  // Removed data-ai-hint as we are using specific local images
+                  fill
+                  className="object-contain rounded-lg"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-              <div className="pr-2"> 
+              <div className="pr-2">
                 <DialogDescription asChild>
                   <div className={cn(
-                    "text-sm", 
-                    "text-foreground/80 space-y-3 text-left" 
+                    "text-sm",
+                    "text-foreground/80 space-y-3 text-left"
                   )}>
                     {modalContent.description}
                   </div>
