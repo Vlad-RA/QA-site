@@ -14,22 +14,22 @@ import {z} from 'genkit';
 const FailurePredictionInputSchema = z.object({
   historicalData: z
     .string()
-    .describe('Historical data related to software development, testing, and deployment. Include failure reports, bug tracking data, and performance metrics.'),
+    .describe('Исторические данные, связанные с разработкой, тестированием и развертыванием программного обеспечения. Включите отчеты о сбоях, данные отслеживания ошибок и метрики производительности.'),
   developmentPractices: z
     .string()
-    .describe('Description of current software development practices, including methodologies, coding standards, and testing procedures.'),
+    .describe('Описание текущих практик разработки программного обеспечения, включая методологии, стандарты кодирования и процедуры тестирования.'),
 });
 export type FailurePredictionInput = z.infer<typeof FailurePredictionInputSchema>;
 
 const FailurePredictionOutputSchema = z.object({
   failureScenarios: z
     .array(z.string())
-    .describe('An array of predicted software failure scenarios, each described in detail.'),
+    .describe('Массив прогнозируемых сценариев сбоев программного обеспечения, каждый из которых подробно описан.'),
   riskAssessment: z
     .string()
-    .describe('An overall risk assessment based on the predicted failure scenarios, including potential impact and likelihood.'),
+    .describe('Общая оценка рисков на основе прогнозируемых сценариев сбоев, включая потенциальное воздействие и вероятность.'),
   recommendations:
-    z.array(z.string()).describe('An array of recommendations for proactively addressing vulnerabilities and improving software quality based on the predicted failure scenarios.'),
+    z.array(z.string()).describe('Массив рекомендаций по проактивному устранению уязвимостей и улучшению качества программного обеспечения на основе прогнозируемых сценариев сбоев.'),
 });
 export type FailurePredictionOutput = z.infer<typeof FailurePredictionOutputSchema>;
 
@@ -41,15 +41,15 @@ const prompt = ai.definePrompt({
   name: 'failurePredictionPrompt',
   input: {schema: FailurePredictionInputSchema},
   output: {schema: FailurePredictionOutputSchema},
-  prompt: `You are an AI-powered tool that predicts potential software failure scenarios based on historical data and current development practices.
+  prompt: `Вы — инструмент на базе ИИ, который прогнозирует потенциальные сценарии сбоев программного обеспечения на основе исторических данных и текущих практик разработки.
 
-  Based on the following historical data:
+  На основе следующих исторических данных:
   {{historicalData}}
 
-  And current development practices:
+  И текущих практик разработки:
   {{developmentPractices}}
 
-  Predict potential software failure scenarios, provide an overall risk assessment, and offer recommendations for proactively addressing vulnerabilities and improving software quality. Adhere to the FailurePredictionOutputSchema format.
+  Предскажите потенциальные сценарии сбоев программного обеспечения, предоставьте общую оценку рисков и предложите рекомендации для проактивного устранения уязвимостей и улучшения качества программного обеспечения. Придерживайтесь формата FailurePredictionOutputSchema.
   `,
 });
 

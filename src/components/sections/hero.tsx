@@ -17,15 +17,15 @@ export default function HeroSection() {
       />
       <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-          QA Specialist: Digital Quality Architect
+          QA-специалист: Архитектор цифрового качества
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-foreground/80">
-          Ensuring the stability, security and efficiency of software products at every stage of development.
+          Обеспечение стабильности, безопасности и эффективности программных продуктов на каждом этапе разработки.
         </p>
         <div className="mt-10">
           <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 ease-in-out transform hover:scale-105">
             <Link href="#skills">
-              Learn more
+              Узнать больше
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 h-5 w-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </Link>
           </Button>

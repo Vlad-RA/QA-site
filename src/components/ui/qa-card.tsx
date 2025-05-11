@@ -31,7 +31,7 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 ease-in-out">
-              Learn more
+              Узнать больше
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[525px] bg-background border-border text-foreground">

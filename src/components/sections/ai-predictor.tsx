@@ -1,8 +1,7 @@
-// use client';
 'use client';
 
-import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { predictFailureAction, type PredictionFormState } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,7 +15,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
-      {pending ? 'Predicting...' : 'Predict Failures'}
+      {pending ? 'Прогнозирование...' : 'Предсказать сбои'}
     </Button>
   );
 }
@@ -29,9 +28,9 @@ export default function AiPredictorSection() {
     <section id="tools" className="py-16 md:py-24 bg-background/70 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">AI-Driven Failure Prediction</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">Прогнозирование сбоев на основе AI</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/70">
-            Leverage AI to anticipate potential software failure scenarios. Input historical data and current development practices to receive an analysis of risks and actionable recommendations.
+            Используйте AI для прогнозирования потенциальных сценариев сбоев программного обеспечения. Введите исторические данные и текущие практики разработки, чтобы получить анализ рисков и действенные рекомендации.
           </p>
         </div>
 
@@ -40,14 +39,14 @@ export default function AiPredictorSection() {
             <form action={formAction} className="space-y-6">
               <div>
                 <Label htmlFor="historicalData" className="block text-sm font-medium text-foreground/90 mb-1">
-                  Historical Data
+                  Исторические данные
                 </Label>
                 <Textarea
                   id="historicalData"
                   name="historicalData"
                   rows={5}
                   className="bg-input border-border focus:ring-primary focus:border-primary"
-                  placeholder="Enter historical data: failure reports, bug tracking data, performance metrics..."
+                  placeholder="Введите исторические данные: отчеты о сбоях, данные отслеживания ошибок, метрики производительности..."
                   aria-describedby="historicalData-error"
                 />
                 {state?.fieldErrors?.historicalData && (
@@ -58,14 +57,14 @@ export default function AiPredictorSection() {
               </div>
               <div>
                 <Label htmlFor="developmentPractices" className="block text-sm font-medium text-foreground/90 mb-1">
-                  Development Practices
+                  Практики разработки
                 </Label>
                 <Textarea
                   id="developmentPractices"
                   name="developmentPractices"
                   rows={5}
                   className="bg-input border-border focus:ring-primary focus:border-primary"
-                  placeholder="Describe current development practices: methodologies, coding standards, testing procedures..."
+                  placeholder="Опишите текущие практики разработки: методологии, стандарты кодирования, процедуры тестирования..."
                   aria-describedby="developmentPractices-error"
                 />
                  {state?.fieldErrors?.developmentPractices && (
@@ -82,7 +81,7 @@ export default function AiPredictorSection() {
         {state?.message && !state.result && (
            <Alert variant={state.error || state.fieldErrors ? "destructive" : "default"} className="mt-8 max-w-3xl mx-auto">
             {state.error || state.fieldErrors ? <AlertCircle className="h-4 w-4" /> : <CheckCircle2 className="h-4 w-4" />}
-            <AlertTitle>{state.error || state.fieldErrors ? "Error" : "Status"}</AlertTitle>
+            <AlertTitle>{state.error || state.fieldErrors ? "Ошибка" : "Статус"}</AlertTitle>
             <AlertDescription>{state.message}</AlertDescription>
           </Alert>
         )}
@@ -90,8 +89,8 @@ export default function AiPredictorSection() {
         {state?.result && (
           <Card className="mt-8 max-w-3xl mx-auto shadow-lg bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-2xl text-white">Prediction Results</CardTitle>
-              <CardDescription className="text-foreground/70">Analysis based on the provided data.</CardDescription>
+              <CardTitle className="text-2xl text-white">Результаты прогнозирования</CardTitle>
+              <CardDescription className="text-foreground/70">Анализ на основе предоставленных данных.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
@@ -99,7 +98,7 @@ export default function AiPredictorSection() {
                   <AccordionTrigger className="text-lg font-semibold text-primary hover:no-underline">
                     <div className="flex items-center gap-2">
                       <ShieldAlert className="h-5 w-5 text-primary" />
-                      Predicted Failure Scenarios
+                      Прогнозируемые сценарии сбоев
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pt-2">
@@ -110,7 +109,7 @@ export default function AiPredictorSection() {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-foreground/70">No specific failure scenarios predicted based on the input.</p>
+                      <p className="text-foreground/70">Конкретных сценариев сбоев на основе введенных данных не предсказано.</p>
                     )}
                   </AccordionContent>
                 </AccordionItem>
@@ -119,7 +118,7 @@ export default function AiPredictorSection() {
                   <AccordionTrigger className="text-lg font-semibold text-primary hover:no-underline">
                      <div className="flex items-center gap-2">
                        <ListChecks className="h-5 w-5 text-primary" />
-                        Overall Risk Assessment
+                        Общая оценка рисков
                      </div>
                   </AccordionTrigger>
                   <AccordionContent className="pt-2">
@@ -131,7 +130,7 @@ export default function AiPredictorSection() {
                   <AccordionTrigger className="text-lg font-semibold text-primary hover:no-underline">
                      <div className="flex items-center gap-2">
                        <Lightbulb className="h-5 w-5 text-primary" />
-                        Recommendations
+                        Рекомендации
                      </div>
                   </AccordionTrigger>
                   <AccordionContent className="pt-2">
@@ -142,7 +141,7 @@ export default function AiPredictorSection() {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-foreground/70">No specific recommendations generated.</p>
+                      <p className="text-foreground/70">Конкретных рекомендаций не сгенерировано.</p>
                     )}
                   </AccordionContent>
                 </AccordionItem>

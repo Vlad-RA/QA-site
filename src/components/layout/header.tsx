@@ -8,10 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Tools', href: '#tools' },
-  { label: 'Contacts', href: '#contact' },
+  { label: 'Главная', href: '#home' },
+  { label: 'Навыки', href: '#skills' },
+  { label: 'Инструменты', href: '#tools' },
+  { label: 'Контакты', href: '#contact' },
 ];
 
 export default function AppHeader() {
@@ -23,7 +23,7 @@ export default function AppHeader() {
   }, []);
 
   if (!isMounted) {
-    return null; // Avoid hydration mismatch
+    return null; 
   }
 
   const NavLinks = ({ inSheet = false }: { inSheet?: boolean }) => (
@@ -33,7 +33,6 @@ export default function AppHeader() {
           <Link
             href={item.href}
             className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md"
-            // onClick to close sheet is handled by SheetClose when inSheet is true
           >
             {item.label}
           </Link>
@@ -46,7 +45,6 @@ export default function AppHeader() {
             </SheetClose>
           );
         } else {
-          // When not in a sheet (desktop), render the Link directly with its key
           return (
             <Link
               key={item.href}
@@ -66,7 +64,7 @@ export default function AppHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="#home" className="flex items-center gap-2">
           <span className="text-2xl font-bold text-primary">QA</span>
-          <span className="font-semibold text-foreground hidden sm:inline-block">Quality Insights Hub</span>
+          <span className="font-semibold text-foreground hidden sm:inline-block">Центр Аналитики Качества</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -75,10 +73,10 @@ export default function AppHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" aria-label="Search">
+          <Button variant="ghost" size="icon" aria-label="Поиск">
             <Search className="h-5 w-5 text-foreground/80" />
           </Button>
-          <Button variant="ghost" size="icon" aria-label="Login">
+          <Button variant="ghost" size="icon" aria-label="Войти">
             <User className="h-5 w-5 text-foreground/80" />
           </Button>
 
@@ -86,7 +84,7 @@ export default function AppHeader() {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button variant="ghost" size="icon" aria-label="Открыть меню">
                   <Menu className="h-6 w-6 text-foreground/80" />
                 </Button>
               </SheetTrigger>
@@ -98,7 +96,7 @@ export default function AppHeader() {
                      </Link>
                    </SheetClose>
                   <SheetClose asChild>
-                     <Button variant="ghost" size="icon" aria-label="Close menu">
+                     <Button variant="ghost" size="icon" aria-label="Закрыть меню">
                         <X className="h-6 w-6 text-foreground/80" />
                       </Button>
                   </SheetClose>

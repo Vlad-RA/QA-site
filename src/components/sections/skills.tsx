@@ -1,23 +1,23 @@
 'use client';
 
 import QaCard from '@/components/ui/qa-card';
-import { TestTube2, Bot, BarChart3, ShieldCheck } from 'lucide-react'; // Or FlaskConical, Cog, PieChart, Lock
+import { TestTube2, Bot, BarChart3, ShieldCheck } from 'lucide-react'; 
 
 const skillsData = [
   {
     icon: TestTube2,
-    title: 'Testing',
-    description: 'Comprehensive manual and exploratory testing to ensure functional correctness and user experience.',
+    title: 'Тестирование',
+    description: 'Всестороннее ручное и исследовательское тестирование для обеспечения функциональной корректности и пользовательского опыта.',
     modalContent: {
-      title: 'Deep Dive into Testing',
+      title: 'Глубокое погружение в тестирование',
       description: (
         <>
-          <p>Our testing methodologies cover a wide spectrum, including:</p>
+          <p>Наши методологии тестирования охватывают широкий спектр, включая:</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Functional Testing: Verifying each function of the software operates in conformance with the requirement specifications.</li>
-            <li>Usability Testing: Assessing how easy user interfaces are to use.</li>
-            <li>Exploratory Testing: Simultaneous learning, test design, and test execution.</li>
-            <li>Regression Testing: Ensuring that new code changes do not adversely affect existing features.</li>
+            <li>Функциональное тестирование: Проверка того, что каждая функция программного обеспечения работает в соответствии со спецификациями требований.</li>
+            <li>Тестирование юзабилити: Оценка простоты использования пользовательских интерфейсов.</li>
+            <li>Исследовательское тестирование: Одновременное изучение, проектирование тестов и их выполнение.</li>
+            <li>Регрессионное тестирование: Гарантия того, что новые изменения кода не оказывают негативного влияния на существующие функции.</li>
           </ul>
         </>
       ),
@@ -25,18 +25,18 @@ const skillsData = [
   },
   {
     icon: Bot,
-    title: 'Automation',
-    description: 'Developing and maintaining automated test suites for efficiency and extensive coverage.',
+    title: 'Автоматизация',
+    description: 'Разработка и поддержка автоматизированных наборов тестов для эффективности и широкого покрытия.',
     modalContent: {
-      title: 'The Power of Automation',
+      title: 'Сила автоматизации',
       description: (
         <>
-          <p>Automation is key to modern QA, enabling:</p>
+          <p>Автоматизация - ключ к современному QA, позволяющая:</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Faster Feedback Cycles: Integrating automated tests into CI/CD pipelines for rapid defect detection.</li>
-            <li>Increased Test Coverage: Executing a broader range of tests more frequently than manual testing allows.</li>
-            <li>Reduced Human Error: Minimizing inconsistencies inherent in manual testing.</li>
-            <li>Reusable Test Scripts: Creating robust and maintainable scripts for long-term value.</li>
+            <li>Более быстрые циклы обратной связи: Интеграция автоматизированных тестов в CI/CD конвейеры для быстрого обнаружения дефектов.</li>
+            <li>Увеличенное тестовое покрытие: Выполнение более широкого спектра тестов чаще, чем это позволяет ручное тестирование.</li>
+            <li>Снижение человеческого фактора: Минимизация несоответствий, присущих ручному тестированию.</li>
+            <li>Многоразовые тестовые сценарии: Создание надежных и поддерживаемых сценариев для долгосрочной ценности.</li>
           </ul>
         </>
       ),
@@ -44,18 +44,18 @@ const skillsData = [
   },
   {
     icon: BarChart3,
-    title: 'Analytics',
-    description: 'Utilizing data and metrics to track quality, identify trends, and drive continuous improvement.',
+    title: 'Аналитика',
+    description: 'Использование данных и метрик для отслеживания качества, выявления тенденций и постоянного улучшения.',
     modalContent: {
-      title: 'Insights through Analytics',
+      title: 'Аналитика для инсайтов',
       description: (
         <>
-          <p>Data-driven QA involves:</p>
+          <p>QA, основанное на данных, включает:</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Defect Trend Analysis: Identifying patterns in defects to address root causes.</li>
-            <li>Performance Metrics: Monitoring application speed, stability, and resource usage.</li>
-            <li>Test Coverage Reports: Visualizing the extent of testing and identifying gaps.</li>
-            <li>Quality Dashboards: Providing stakeholders with a clear view of the product's quality status.</li>
+            <li>Анализ тенденций дефектов: Выявление закономерностей в дефектах для устранения их первопричин.</li>
+            <li>Метрики производительности: Мониторинг скорости, стабильности и использования ресурсов приложения.</li>
+            <li>Отчеты о тестовом покрытии: Визуализация объема тестирования и выявление пробелов.</li>
+            <li>Панели мониторинга качества: Предоставление заинтересованным сторонам четкого представления о статусе качества продукта.</li>
           </ul>
         </>
       ),
@@ -63,18 +63,18 @@ const skillsData = [
   },
   {
     icon: ShieldCheck,
-    title: 'Security',
-    description: 'Implementing security testing practices to identify and mitigate vulnerabilities proactively.',
+    title: 'Безопасность',
+    description: 'Внедрение практик тестирования безопасности для проактивного выявления и устранения уязвимостей.',
     modalContent: {
-      title: 'Ensuring Software Security',
+      title: 'Обеспечение безопасности ПО',
       description: (
         <>
-          <p>Security is paramount. Our approach includes:</p>
+          <p>Безопасность превыше всего. Наш подход включает:</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Vulnerability Scanning: Using automated tools to detect known security weaknesses.</li>
-            <li>Penetration Testing: Simulating attacks to identify exploitable vulnerabilities.</li>
-            <li>Security Code Reviews: Analyzing source code for security flaws.</li>
-            <li>Compliance Checks: Ensuring software adheres to relevant security standards and regulations.</li>
+            <li>Сканирование уязвимостей: Использование автоматизированных инструментов для обнаружения известных слабых мест в безопасности.</li>
+            <li>Тестирование на проникновение: Моделирование атак для выявления эксплуатируемых уязвимостей.</li>
+            <li>Анализ кода на безопасность: Анализ исходного кода на наличие недостатков безопасности.</li>
+            <li>Проверки на соответствие: Гарантия того, что программное обеспечение соответствует релевантным стандартам и нормам безопасности.</li>
           </ul>
         </>
       ),
@@ -87,9 +87,9 @@ export default function SkillsSection() {
     <section id="skills" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">Key QA Specializations</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">Ключевые специализации QA</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/70">
-            Exploring the diverse facets of Quality Assurance that drive software excellence.
+            Изучение разнообразных аспектов обеспечения качества, которые способствуют совершенству программного обеспечения.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -4,8 +4,8 @@ import { predictFailureScenarios, type FailurePredictionInput, type FailurePredi
 import { z } from 'zod';
 
 const InputSchema = z.object({
-  historicalData: z.string().min(10, "Historical data must be at least 10 characters long."),
-  developmentPractices: z.string().min(10, "Development practices description must be at least 10 characters long."),
+  historicalData: z.string().min(10, "Исторические данные должны содержать не менее 10 символов."),
+  developmentPractices: z.string().min(10, "Описание практик разработки должно содержать не менее 10 символов."),
 });
 
 export type PredictionFormState = {
@@ -33,7 +33,7 @@ export async function predictFailureAction(
   if (!validatedFields.success) {
     return {
       fieldErrors: validatedFields.error.flatten().fieldErrors,
-      message: "Validation failed. Please check the inputs.",
+      message: "Ошибка валидации. Пожалуйста, проверьте введенные данные.",
     };
   }
 
@@ -43,10 +43,10 @@ export async function predictFailureAction(
       developmentPractices: validatedFields.data.developmentPractices,
     };
     const output = await predictFailureScenarios(input);
-    return { result: output, message: "Prediction successful." };
+    return { result: output, message: "Прогнозирование успешно." };
   } catch (e) {
     console.error("AI Prediction Error:", e);
-    const errorMessage = e instanceof Error ? e.message : "An unknown error occurred during prediction.";
-    return { error: errorMessage, message: "Prediction failed." };
+    const errorMessage = e instanceof Error ? e.message : "Произошла неизвестная ошибка во время прогнозирования.";
+    return { error: errorMessage, message: "Ошибка прогнозирования." };
   }
 }

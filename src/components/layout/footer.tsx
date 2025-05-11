@@ -10,10 +10,10 @@ export default function AppFooter() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <Link href="#home" className="text-lg font-bold text-primary">
-              Quality Insights Hub
+              Центр Аналитики Качества
             </Link>
             <p className="text-sm mt-1">
-              &copy; {currentYear} Quality Insights Hub. All rights reserved.
+              &copy; {currentYear} Центр Аналитики Качества. Все права защищены.
             </p>
           </div>
           
@@ -30,7 +30,7 @@ export default function AppFooter() {
           </div>
         </div>
         <div className="mt-6 text-center text-xs text-foreground/50">
-          <p>Built with Next.js and Tailwind CSS. Designed for QA professionals.</p>
+          <p>Создано с использованием Next.js и Tailwind CSS. Разработано для QA-специалистов.</p>
         </div>
       </div>
     </footer>

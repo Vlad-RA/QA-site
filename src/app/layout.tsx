@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Quality Insights Hub',
-  description: 'Presentation of the role of a QA specialist in the IT industry, demonstration of key skills and tools.',
+  title: 'Центр Аналитики Качества',
+  description: 'Презентация роли QA-специалиста в IT-индустрии, демонстрация ключевых навыков и инструментов.',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ scrollBehavior: 'smooth' }}>
+    <html lang="ru" style={{ scrollBehavior: 'smooth' }}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         {children}
         <Toaster />
