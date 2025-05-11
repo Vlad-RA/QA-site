@@ -48,7 +48,7 @@ export default function ContactSection() {
                 <Mail className="h-5 w-5 text-primary" />
                 info@qualityinsightshub.com
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
+              <a href="https://t.me/nightteli" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
                 <TelegramIcon />
                 Аккаунт Telegram
               </a>
