@@ -56,10 +56,6 @@ export default function ContactSection() {
                 <Github className="h-5 w-5 text-primary" />
                 Репозиторий GitHub
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5 text-primary" />
-                Профиль LinkedIn
-              </a>
             </div>
           </div>
 
