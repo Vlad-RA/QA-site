@@ -1,18 +1,23 @@
+
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card'; // Renamed CardDescription to avoid conflict
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import type { LucideIcon } from 'lucide-react';
+import Image from 'next/image';
+
+interface QaCardModalContent {
+  title: string;
+  description: string | React.ReactNode;
+  imageHint: string; // For data-ai-hint and potentially for placeholder uniqueness
+}
 
 interface QaCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  modalContent: {
-    title: string;
-    description: string | React.ReactNode;
-  };
+  modalContent: QaCardModalContent;
 }
 
 export default function QaCard({ icon: Icon, title, description, modalContent }: QaCardProps) {
@@ -25,16 +30,16 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
         <CardTitle className="text-xl text-white">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between text-center">
-        <CardDescription className="text-foreground/70 mb-6">
+        <CardDesc className="text-foreground/70 mb-6"> {/* Used aliased CardDesc */}
           {description}
-        </CardDescription>
+        </CardDesc>
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 ease-in-out">
               Узнать больше
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[525px] bg-background border-border text-foreground">
+          <DialogContent className="sm:max-w-lg md:max-w-2xl bg-background border-border text-foreground">
             <DialogHeader>
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 rounded-md bg-primary/10">
@@ -43,12 +48,27 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
                 <DialogTitle className="text-2xl text-white">{modalContent.title}</DialogTitle>
               </div>
             </DialogHeader>
-            <DialogDescription className="text-foreground/80 space-y-3">
-              {typeof modalContent.description === 'string' ? <p>{modalContent.description}</p> : modalContent.description}
-            </DialogDescription>
+            <div className="grid md:grid-cols-2 gap-6 pt-4 items-start">
+              <div className="relative aspect-square w-full max-w-[250px] mx-auto md:mx-0 md:max-w-none">
+                <Image
+                  src={`https://picsum.photos/seed/${encodeURIComponent(modalContent.imageHint)}/250/250`}
+                  alt={modalContent.title}
+                  width={250}
+                  height={250}
+                  className="rounded-lg object-cover shadow-md"
+                  data-ai-hint={modalContent.imageHint}
+                />
+              </div>
+              <div className="md:max-h-[300px] md:overflow-y-auto pr-2"> {/* Added max-height and overflow for text */}
+                <DialogDescription className="text-foreground/80 space-y-3 text-left">
+                  {typeof modalContent.description === 'string' ? <p>{modalContent.description}</p> : modalContent.description}
+                </DialogDescription>
+              </div>
+            </div>
           </DialogContent>
         </Dialog>
       </CardContent>
     </Card>
   );
 }
+
