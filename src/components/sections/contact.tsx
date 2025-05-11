@@ -4,6 +4,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Linkedin, Github } from "lucide-react";
 
+// Placeholder for Telegram icon, as it's not in lucide-react by default
+const TelegramIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-5 w-5 text-primary"
+  >
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+  </svg>
+);
+
+
 export default function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
@@ -29,12 +49,16 @@ export default function ContactSection() {
                 info@qualityinsightshub.com
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5 text-primary" />
-                Профиль LinkedIn
+                <TelegramIcon />
+                Аккаунт Telegram
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
+              <a href="https://github.com/Vlad-RA/QA-site.git" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
                 <Github className="h-5 w-5 text-primary" />
                 Репозиторий GitHub
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
+                <Linkedin className="h-5 w-5 text-primary" />
+                Профиль LinkedIn
               </a>
             </div>
           </div>
