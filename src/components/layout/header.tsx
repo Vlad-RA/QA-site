@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -27,17 +28,36 @@ export default function AppHeader() {
 
   const NavLinks = ({ inSheet = false }: { inSheet?: boolean }) => (
     <>
-      {navItems.map((item) => (
-        <SheetClose asChild={inSheet} key={item.href}>
+      {navItems.map((item) => {
+        const linkElement = (
           <Link
             href={item.href}
             className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md"
-            onClick={() => inSheet && setIsMobileMenuOpen(false)}
+            // onClick to close sheet is handled by SheetClose when inSheet is true
           >
             {item.label}
           </Link>
-        </SheetClose>
-      ))}
+        );
+
+        if (inSheet) {
+          return (
+            <SheetClose asChild key={item.href}>
+              {linkElement}
+            </SheetClose>
+          );
+        } else {
+          // When not in a sheet (desktop), render the Link directly with its key
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md"
+            >
+              {item.label}
+            </Link>
+          );
+        }
+      })}
     </>
   );
 
@@ -72,9 +92,11 @@ export default function AppHeader() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] bg-background p-6">
                 <div className="flex justify-between items-center mb-6">
-                   <Link href="#home" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                      <span className="text-2xl font-bold text-primary">QA</span>
-                   </Link>
+                   <SheetClose asChild>
+                     <Link href="#home" className="flex items-center gap-2">
+                        <span className="text-2xl font-bold text-primary">QA</span>
+                     </Link>
+                   </SheetClose>
                   <SheetClose asChild>
                      <Button variant="ghost" size="icon" aria-label="Close menu">
                         <X className="h-6 w-6 text-foreground/80" />
