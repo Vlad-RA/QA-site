@@ -1,6 +1,8 @@
+// use client';
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
 import { predictFailureAction, type PredictionFormState } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,7 +23,7 @@ function SubmitButton() {
 
 export default function AiPredictorSection() {
   const initialState: PredictionFormState = {};
-  const [state, formAction] = useFormState(predictFailureAction, initialState);
+  const [state, formAction] = useActionState(predictFailureAction, initialState);
 
   return (
     <section id="tools" className="py-16 md:py-24 bg-background/70 backdrop-blur-sm">
