@@ -50,3 +50,4 @@ export async function predictFailureAction(
     return { error: errorMessage, message: "Ошибка прогнозирования." };
   }
 }
+
