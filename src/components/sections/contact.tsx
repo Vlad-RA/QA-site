@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Linkedin, Github } from "lucide-react";
+import {Github } from "lucide-react";
 
 // Placeholder for Telegram icon, as it's not in lucide-react by default
 const TelegramIcon = () => (
@@ -44,10 +44,6 @@ export default function ContactSection() {
               </p>
             </div>
             <div className="space-y-3">
-              <a href="mailto:rad4enko-v1dimir@yandex.ru" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
-                <Mail className="h-5 w-5 text-primary" />
-                rad4enko-v1dimir@yandex.ru
-              </a>
               <a href="https://t.me/nightteli" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors">
                 <TelegramIcon />
                 Аккаунт Telegram
