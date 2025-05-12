@@ -65,8 +65,6 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
                     alt={modalContent.title}
                     layout="fill"
                     objectFit="cover"
-                    width={200} 
-                    height={200}
                     data-ai-hint={`${title.toLowerCase().replace(/\s+/g, '-')}`}
                   />
                 </div>
