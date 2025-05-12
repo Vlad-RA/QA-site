@@ -1,4 +1,3 @@
-// src/components/ui/qa-card.tsx
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card';
