@@ -9,11 +9,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogTrigger,
 } from '@/components/ui/dialog';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { DialogTrigger } from "@radix-ui/react-dialog"; // Added import for DialogTrigger
 
 interface QaCardModalContent {
   title: string;
@@ -58,16 +58,15 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
               </div>
             </DialogHeader>
             <div className="p-6 max-h-[85vh] overflow-y-auto custom-scrollbar">
-              <div className="grid md:grid-cols-2 gap-4 items-start"> {/* Reduced gap from gap-6 to gap-4 */}
+              <div className="grid md:grid-cols-2 gap-2 items-start"> {/* Changed gap-4 to gap-2 */}
                 <div className="relative w-[250px] h-[250px] rounded-lg overflow-hidden shadow-md border border-border/50 mx-auto md:mx-0">
                   <Image
                     src={imagePath}
                     alt={modalContent.title}
                     width={250}
                     height={250}
-                    objectFit="cover" 
+                    className="rounded-lg object-cover"
                     data-ai-hint={`${title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="rounded-lg"
                   />
                 </div>
                 <div className="prose prose-sm md:prose-base prose-invert max-w-none text-foreground/80 space-y-3 text-left md:max-h-[calc(85vh-150px)] md:overflow-y-auto custom-scrollbar pr-2">
