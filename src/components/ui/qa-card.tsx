@@ -58,14 +58,14 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
               </div>
             </DialogHeader>
             <div className="p-6 max-h-[85vh] overflow-y-auto custom-scrollbar">
-              <div className="grid md:grid-cols-2 gap-6 items-start">
+              <div className="grid md:grid-cols-2 gap-4 items-start"> {/* Reduced gap from gap-6 to gap-4 */}
                 <div className="relative w-[250px] h-[250px] rounded-lg overflow-hidden shadow-md border border-border/50 mx-auto md:mx-0">
                   <Image
                     src={imagePath}
                     alt={modalContent.title}
                     width={250}
                     height={250}
-                    objectFit="cover"
+                    objectFit="cover" 
                     data-ai-hint={`${title.toLowerCase().replace(/\s+/g, '-')}`}
                     className="rounded-lg"
                   />
