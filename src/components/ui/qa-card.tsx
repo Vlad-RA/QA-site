@@ -1,15 +1,24 @@
+// src/components/ui/qa-card.tsx
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription as CardDesc } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface QaCardModalContent {
   title: string;
   description: React.ReactNode;
-  imageName: string; // Keep imageName for potential future use, but it won't be displayed
+  imageName: string;
 }
 
 interface QaCardProps {
@@ -20,6 +29,7 @@ interface QaCardProps {
 }
 
 export default function QaCard({ icon: Icon, title, description, modalContent }: QaCardProps) {
+  const imagePath = `/images/${modalContent.imageName}`;
   return (
     <Card className="bg-card/80 backdrop-blur-sm shadow-xl hover:shadow-primary/30 transition-shadow duration-300 flex flex-col">
       <CardHeader className="items-center text-center">
@@ -38,7 +48,7 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
               Узнать больше
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-2xl md:max-w-3xl bg-background border-border text-foreground p-0">
+          <DialogContent className="sm:max-w-4xl md:max-w-5xl bg-background border-border text-foreground p-0">
             <DialogHeader className="p-6 pb-0">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 rounded-md bg-primary/10">
@@ -48,12 +58,23 @@ export default function QaCard({ icon: Icon, title, description, modalContent }:
               </div>
             </DialogHeader>
             <div className="p-6 max-h-[85vh] overflow-y-auto custom-scrollbar">
-              <div className="prose prose-sm md:prose-base prose-invert max-w-none text-foreground/80 space-y-3 text-left md:max-h-[calc(85vh-120px)] md:overflow-y-auto custom-scrollbar pr-2">
-                 <DialogDescription asChild>
+              <div className="grid md:grid-cols-2 gap-6 items-start">
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-md border border-border/50">
+                  <Image
+                    src={imagePath}
+                    alt={modalContent.title}
+                    layout="fill"
+                    objectFit="cover"
+                    data-ai-hint={`${title.toLowerCase().replace(/\s+/g, '-')}`} // more specific hint
+                  />
+                </div>
+                <div className="prose prose-sm md:prose-base prose-invert max-w-none text-foreground/80 space-y-3 text-left md:max-h-[calc(85vh-150px)] md:overflow-y-auto custom-scrollbar pr-2">
+                  <DialogDescription asChild>
                     <div className={cn("text-sm text-foreground/80 space-y-3 text-left")}>
-                        {modalContent.description}
+                      {modalContent.description}
                     </div>
-                </DialogDescription>
+                  </DialogDescription>
+                </div>
               </div>
             </div>
           </DialogContent>

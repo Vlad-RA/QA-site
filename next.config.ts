@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    // If images are served from localhost during development, uncomment the following:
+    // domains: ['localhost'], 
   },
 };
 
